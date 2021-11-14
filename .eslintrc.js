@@ -24,7 +24,8 @@ module.exports = {
     'import/extensions': ['error', 'never'],
     'lines-between-class-members': 'off',
     '@typescript-eslint/lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
-    'no-underscore-dangle': 'allow',
+    'no-underscore-dangle': 'off',
+    'class-methods-use-this': 'off',
   },
   settings: {
     'import/resolver': {
