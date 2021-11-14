@@ -26,7 +26,9 @@ module.exports = {
     '@typescript-eslint/lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
     'no-underscore-dangle': 'off',
     'class-methods-use-this': 'off',
-    'no-use-before-define': ['error', { functions: true, classes: false }],
+    'no-use-before-define': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
   },
   settings: {
     'import/resolver': {
