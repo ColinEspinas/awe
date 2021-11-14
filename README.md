@@ -7,6 +7,13 @@
 
 <p align="center">
   <a href="https://colinespinas.github.io/awe"><strong>Explore the documentation »</strong></a>
+  <br>
+  <br>
+  <a href="https://github.com/ColinEspinas/awe/actions/workflows/release.yml"><img alt="GitHub Workflow Status Release" src="https://img.shields.io/github/workflow/status/colinespinas/awe/Release?logo=github&style=for-the-badge"></a>
+  <a href="https://github.com/ColinEspinas/awe/actions/workflows/docs.yml"><img alt="GitHub Workflow Status Documentation" src="https://img.shields.io/github/workflow/status/colinespinas/awe/Documentation%20generation?label=docs&logo=github&style=for-the-badge"></a>
+  <a href="https://github.com/ColinEspinas/awe/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/colinespinas/awe?color=black&style=for-the-badge"></a>
+  <a href="https://github.com/ColinEspinas/awe/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues-raw/colinespinas/awe?style=for-the-badge">
+  </a>
 </p>
 
 Awe is a **small and customizable** game engine made as **a passion project** to learn more about game and web development.
