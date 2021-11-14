@@ -1,5 +1,5 @@
 import type { EngineOptions } from '../types/Options';
-import type { GameNode } from './GameNode';
+import type { TreeNode } from './TreeNode';
 
 /**
  * The starting point of an AWE game application.
@@ -10,9 +10,9 @@ export class Engine {
    */
   private _options: EngineOptions;
   /**
-   * Root Node of the engine's graph.
+   * Root node of the engine's graph.
    */
-  private rootNode: GameNode;
+  private rootNode: TreeNode;
 
   /**
    * Get engine's options.
@@ -34,15 +34,15 @@ export class Engine {
   }
 
   /**
-   * Init systems and starts the update loops
+   * Init systems and starts the update loops.
    */
   public run(): void {
     requestAnimationFrame(this.update.bind(this));
   }
 
   /**
-   * Update loop function, uses notions from 
-   * [this article](https://gafferongames.com/post/fix_your_timestep/) 
+   * Update loop function, uses notions from
+   * [this article](https://gafferongames.com/post/fix_your_timestep/)
    * to fix the timestep for fixed update loops (useful for physics and user interactions).
    */
   protected update(): void {

@@ -1,18 +1,26 @@
-//       ___           ___           ___
-//      /\  \         /\__\         /\  \
-//     /::\  \       /:/ _/_       /::\  \
-//    /:/\:\  \     /:/ /\__\     /:/\:\  \
-//   /::\~\:\  \   /:/ /:/ _/_   /::\~\:\  \
-//  /:/\:\ \:\__\ /:/_/:/ /\__\ /:/\:\ \:\__\
-//  \/__\:\/:/  / \:\/:/ /:/  / \:\~\:\ \/__/
-//       \::/  /   \::/_/:/  /   \:\ \:\__\
-//       /:/  /     \:\/:/  /     \:\ \/__/
-//      /:/  /       \::/  /       \:\__\
-//      \/__/         \/__/         \/__/
+/**
+ *      ___           ___           ___
+ *     /\  \         /\__\         /\  \
+ *    /::\  \       /:/ _/_       /::\  \
+ *   /:/\:\  \     /:/ /\__\     /:/\:\  \
+ *  /::\~\:\  \   /:/ /:/ _/_   /::\~\:\  \
+ * /:/\:\ \:\__\ /:/_/:/ /\__\ /:/\:\ \:\__\
+ * \/__\:\/:/  / \:\/:/ /:/  / \:\~\:\ \/__/
+ *      \::/  /   \::/_/:/  /   \:\ \:\__\
+ *      /:/  /     \:\/:/  /     \:\ \/__/
+ *     /:/  /       \::/  /       \:\__\
+ *     \/__/         \/__/         \/__/
+ */
+
+/*! AWE | MIT License | github.com/ColinEspinas/awe */
 
 // Core:
 import { Engine } from './core/Engine';
-import { GameNode } from './core/GameNode';
+
+// Nodes:
+import { TreeNode } from './core/TreeNode';
+import { InnerNode } from './core/InnerNode';
+import { OuterNode } from './core/OuterNode';
 
 // Types:
 import { EngineOptions } from './types/Options';
@@ -20,7 +28,10 @@ import { EngineOptions } from './types/Options';
 export {
   // Core:
   Engine,
-  GameNode,
+  TreeNode,
+  InnerNode,
+  OuterNode,
+
   // Types
   EngineOptions,
 };
