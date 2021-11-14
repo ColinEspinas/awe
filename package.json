@@ -1,5 +1,5 @@
 {
-  "name": "@awe/engine",
+  "name": "awe-engine",
   "version": "1.0.0",
   "description": "A small and customizable game engine",
   "main": "index.js",
@@ -45,5 +45,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ColinEspinas/awe.git"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
