@@ -43,7 +43,9 @@ module.exports = {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    libraryTarget: 'umd',
-    library: 'awe',
+    library: {
+      name: 'awe',
+      type: 'umd',
+    },
   },
 };

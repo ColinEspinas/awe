@@ -2,7 +2,7 @@
   "name": "awe-engine",
   "version": "1.0.0",
   "description": "A small and customizable game engine",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "webpack --mode=development --watch",
     "build": "webpack --mode=production",
