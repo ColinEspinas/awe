@@ -1,3 +1,4 @@
+<br>
 <p align="center">
   <img src="https://imgur.com/7rrA61y.png" alt="Bootstrap logo" width="100" height="100">
 </p>
