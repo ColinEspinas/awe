@@ -37,7 +37,7 @@ export class Engine {
    * Init systems and starts the update loops.
    */
   public run(): void {
-    requestAnimationFrame(this.update.bind(this));
+    requestAnimationFrame(this.step.bind(this));
   }
 
   /**
@@ -45,7 +45,7 @@ export class Engine {
    * [this article](https://gafferongames.com/post/fix_your_timestep/)
    * to fix the timestep for fixed update loops (useful for physics and user interactions).
    */
-  protected update(): void {
-    this.run();
+  protected step(): void {
+    this.run(); // Runs requestAnimationFrame to request next step.
   }
 }

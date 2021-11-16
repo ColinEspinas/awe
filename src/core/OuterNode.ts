@@ -7,46 +7,102 @@ import { TreeNode } from './TreeNode';
  */
 export class OuterNode extends TreeNode {
   /**
-   * Calls create function.
+   * Calls onCreate method.
    */
   constructor() {
     super();
-    this.create();
+    this.onCreate();
+  }
+
+  /**
+   * Implemented to throw an error as outer nodes
+   * cannot have children.
+   */
+  public add(): number {
+    throw new Error('You tried to add a child to an outer node. Outer nodes cannot have children.');
+  }
+
+  /**
+   * Implemented to throw an error as outer nodes
+   * cannot have children.
+   */
+  public remove(): TreeNode {
+    throw new Error('You tried to remove a child to an outer node. Outer nodes cannot have children.');
+  }
+
+  /**
+   * Called at parent nodes loading or directly by
+   * the engine's loading if this node is the `rootNode`.
+   *
+   * Calls the `onLoad` method.
+   */
+  public load(): void {
+    this.onLoad();
+  }
+
+  /**
+   * Called at parent nodes step or directly by
+   * the engine's step if this node is the `rootNode`.
+   *
+   * Calls the `onStep` method.
+   */
+  public step(): void {
+    this.onStep();
+  }
+
+  /**
+   * Called at parent nodes fixedStep or directly by
+   * the engine's step if this node is the `rootNode`.
+   *
+   * Calls the `onFixedStep` method.
+   */
+  public fixedStep(): void {
+    this.onFixedStep();
+  }
+
+  /**
+   * Called at parent nodes unload or directly by
+   * the engine's unload if this node is the `rootNode`.
+   *
+   * Calls the `onUnload` method.
+   */
+  public unload(): void {
+    this.onUnload();
   }
 
   /**
    * Called by the node's constructor at instantiation,
-   * this function is to be implemented when needed.
+   * this method is to be implemented when needed.
    */
-  protected create(): void {}
+  protected onCreate(): void {}
 
   /**
-   * Called by the parent node at load,
-   * this function is to be implemented when needed.
+   * Called by the parent node when loaded,
+   * this method is to be implemented when needed.
    *
    * If this node is the engine's root node, this
-   * function will be called by the engine instead.
+   * method will be called by the engine instead.
    */
-  protected load(): void {}
+  protected onLoad(): void {}
 
   /**
-   * Called by the parent node at each update,
-   * this function is to be implemented when needed.
+   * Called by the parent node at each step of the loop,
+   * this method is to be implemented when needed.
    */
-  protected update(): void {}
+  protected onStep(): void {}
 
   /**
-   * Called by the parent node at each fixed update,
-   * this function is to be implemented when needed.
+   * Called by the parent node at each fixed step of the loop,
+   * this method is to be implemented when needed.
    */
-  protected fixedUpdate(): void {}
+  protected onFixedStep(): void {}
 
   /**
    * Called by the parent node at unload,
-   * this function is to be implemented when needed.
+   * this method is to be implemented when needed.
    *
    * If this node is the engine's root node, this
-   * function will be called by the engine instead.
+   * method will be called by the engine instead.
    */
-  protected unload(): void {}
+  protected onUnload(): void {}
 }
