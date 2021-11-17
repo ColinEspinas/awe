@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/colinespinas/awe/compare/v1.0.0...v1.1.0) (2021-11-16)
+
+
+### Features
+
+* **nodes:** added outer and inner nodes methods to handle engine runtime ([76d099f](https://github.com/colinespinas/awe/commit/76d099fb7bf93bada4c50a9d2dea6d892ceac6ba))
+
 # 1.0.0 (2021-11-14)
 
 
