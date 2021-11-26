@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/colinespinas/awe/compare/v1.1.0...v1.2.0) (2021-11-26)
+
+
+### Features
+
+* added systems and step loop to engine class ([24667ba](https://github.com/colinespinas/awe/commit/24667bad5bb480546558d848663a9af6b2a7f0cd))
+
 # [1.1.0](https://github.com/colinespinas/awe/compare/v1.0.0...v1.1.0) (2021-11-16)
 
 
