@@ -22,6 +22,9 @@ import { TreeNode } from './core/TreeNode';
 import { InnerNode } from './core/InnerNode';
 import { OuterNode } from './core/OuterNode';
 
+// Systems:
+import { Time } from './systems/Time';
+
 // Types:
 import { EngineOptions } from './types/Options';
 
@@ -32,6 +35,9 @@ export {
   InnerNode,
   OuterNode,
 
-  // Types
+  // Systems:
+  Time,
+
+  // Types:
   EngineOptions,
 };
