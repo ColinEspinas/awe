@@ -27,6 +27,7 @@ export class InnerNode extends TreeNode {
    * Adds a child node to this node children.
    * @param {TreeNode} node Node to add as child.
    * @returns {number} New children array length.
+   * @sealed
    */
   public add(node: TreeNode): number {
     this.children.push(node);
@@ -37,6 +38,7 @@ export class InnerNode extends TreeNode {
    * Removes a child node from this node children.
    * @param {TreeNode} node Node to remove of children.
    * @returns {TreeNode} Removed node instance.
+   * @sealed
    */
   public remove(node: TreeNode): TreeNode {
     let removedNode;
@@ -57,6 +59,7 @@ export class InnerNode extends TreeNode {
    * the engine's loading if this node is the `rootNode`.
    *
    * Calls the `onLoad` method and children's `load` methods.
+   * @sealed
    */
   public load(): void {
     this.onLoad();
@@ -70,6 +73,7 @@ export class InnerNode extends TreeNode {
    * the engine's step if this node is the `rootNode`.
    *
    * Calls the `onStep` method and children's `step` methods.
+   * @sealed
    */
   public step(): void {
     this.onStep();
@@ -83,6 +87,7 @@ export class InnerNode extends TreeNode {
    * the engine's step if this node is the `rootNode`.
    *
    * Calls the `onFixedStep` and children's `fixedStep` methods.
+   * @sealed
    */
   public fixedStep(): void {
     this.onFixedStep();
@@ -96,6 +101,7 @@ export class InnerNode extends TreeNode {
    * the engine's unload if this node is the `rootNode`.
    *
    * Calls the `onUnload` method and children's `unload` methods.
+   * @sealed
    */
   public unload(): void {
     this.onUnload();
@@ -107,6 +113,7 @@ export class InnerNode extends TreeNode {
   /**
    * Called by the node's constructor at instantiation,
    * this function is to be implemented when needed.
+   * @virtual
    */
   protected onCreate(): void {}
 
@@ -116,18 +123,21 @@ export class InnerNode extends TreeNode {
    *
    * If this node is the engine's root node, this
    * function will be called by the engine instead.
+   * @virtual
    */
   protected onLoad(): void {}
 
   /**
    * Called by the parent node at each step of the loop,
    * this function is to be implemented when needed.
+   * @virtual
    */
   protected onStep(): void {}
 
   /**
    * Called by the parent node at each fixed step of the loop,
    * this function is to be implemented when needed.
+   * @virtual
    */
   protected onFixedStep(): void {}
 
@@ -137,6 +147,7 @@ export class InnerNode extends TreeNode {
    *
    * If this node is the engine's root node, this
    * function will be called by the engine instead.
+   * @virtual
    */
   protected onUnload(): void {}
 }
