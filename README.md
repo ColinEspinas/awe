@@ -46,8 +46,6 @@ We have workflows to:
 - Build, test and release the project.
 - Generate a documentation and deploy it.
 
-Learn more about the CI/CD workflows [here](./.github/WORKFLOWS.md).
-
 ## Contributing
 Any help and contribution is welcome, feel free to submit issues and/or contribute to the project.
 

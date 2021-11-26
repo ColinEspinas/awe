@@ -33,7 +33,7 @@ npm run lint
 ```
 
 **Don’t forget to update documentation for your changes.**
-As we are using TypeDoc for documentation generation we need you to use JSDoc as much as possible.
+As we are using TypeDoc for documentation generation we need you to use JSDoc/TSDoc as much as possible.
 
 **Please update npm lock file (`package-lock.json`) if you add or update dependencies.**
 
