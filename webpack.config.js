@@ -1,9 +1,8 @@
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const WebpackBar = require('webpackbar');
 
-module.exports = {
+module.exports = (_, options) => ({
   entry: './src/index.ts',
   devtool: 'source-map',
   module: {
@@ -13,7 +12,9 @@ module.exports = {
         loader: 'ts-loader',
         exclude: /node_modules/,
         options: {
-          transpileOnly: true,
+          compilerOptions: {
+            declaration: options.mode === 'production',
+          },
         },
       },
       {
@@ -27,7 +28,7 @@ module.exports = {
   },
   optimization: {
     minimizer: [new TerserPlugin({
-      extractComments: false,
+      extractComments: true,
     })],
     usedExports: true,
   },
@@ -35,17 +36,20 @@ module.exports = {
     warnings: false,
   },
   plugins: [
-    new ForkTsCheckerWebpackPlugin(),
+    // new ForkTsCheckerWebpackPlugin(),
     new WebpackBar({ name: 'Building', profile: true }),
   ],
   target: ['web', 'es2018'],
+  experiments: {
+    outputModule: true,
+  },
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
     library: {
-      name: 'awe',
-      type: 'umd',
+      type: 'module',
     },
+    module: true,
   },
-};
+});
