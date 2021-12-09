@@ -65,6 +65,7 @@ export class Time extends System {
   public updateDelta() {
     this.now = performance.now();
     this._delta += Math.min(1, (this.now - this.last) / 1000);
+    this.fps = 1 / this._delta;
   }
 
   /**

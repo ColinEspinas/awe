@@ -14,7 +14,7 @@ export class Engine {
   /**
    * Root node of the engine's graph.
    */
-  private rootNode: TreeNode;
+  public rootNode: TreeNode;
   /**
    * Engine's attached systems.
    */
@@ -97,6 +97,9 @@ export class Engine {
       system.step();
     });
     this.rootNode.step();
+    // (async () => {
+    //   console.log(time.framerate);
+    // })();
     time.updateLast();
   }
 }
