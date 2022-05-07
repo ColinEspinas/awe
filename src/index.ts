@@ -26,7 +26,7 @@ import { OuterNode } from './core/OuterNode';
 import { Time } from './systems/Time';
 
 // Types:
-import { EngineOptions } from './types/Options';
+import type { EngineOptions } from './options/EngineOptions';
 
 export {
   // Core:

@@ -1,4 +1,4 @@
-import type { EngineOptions } from '../types/Options';
+import type { EngineOptions } from '../options/EngineOptions';
 import { TreeNode } from './TreeNode';
 import { System } from './System';
 import { Time } from '../systems/Time';

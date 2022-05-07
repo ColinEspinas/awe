@@ -1,13 +1,8 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "lib": [
-      "ES2020",
-      "DOM"
-    ],
-    "target": "ES2018",
+    "target": "esnext",
     "moduleResolution": "node",
-    "sourceMap": true
   },
   "include": [
     "src/**/*"
