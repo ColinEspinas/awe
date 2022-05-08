@@ -1,6 +1,6 @@
 import type { EngineOptions } from '../options/EngineOptions';
-import { TreeNode } from './TreeNode';
-import { System } from './System';
+import type { TreeNode } from './TreeNode';
+import type { System } from './System';
 import { Time } from '../systems/Time';
 
 /**
@@ -53,7 +53,12 @@ export class Engine {
    * Inits the engine by registering default core systems.
    */
   private init(): void {
-    this.systems.set('Time', new Time());
+    this.systems.set('Time', new Time(this));
+    // Set max framerate for fixed steps:
+    if (this.options.framerate) {
+      const time = this.systems.get('Time') as Time;
+      time.framerate = this.options.framerate;
+    }
   }
 
   /**
