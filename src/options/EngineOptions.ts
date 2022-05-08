@@ -31,5 +31,5 @@ export interface EngineOptions {
    * If set, gives a maximum framerate for the engine's fixed update loop.
    * @default null
    */
-  framerate?: number;
+  framerate?: number | null;
 }

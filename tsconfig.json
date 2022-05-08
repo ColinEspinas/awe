@@ -1,12 +1,9 @@
 {
   "compilerOptions": {
-    "lib": [
-      "ES2020",
-      "DOM"
-    ],
-    "target": "ES2018",
+    "outDir": "dist",
+    "target": "esnext",
     "moduleResolution": "node",
-    "sourceMap": true
+    "strict": false
   },
   "include": [
     "src/**/*"
