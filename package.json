@@ -4,7 +4,7 @@
   "description": "A small and customizable game engine",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
-  "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "rollup -cw",
     "build": "rollup -c --environment NODE_ENV:production",
