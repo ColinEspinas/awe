@@ -3,6 +3,7 @@
     "outDir": "dist",
     "target": "esnext",
     "moduleResolution": "node",
+    "strict": false
   },
   "include": [
     "src/**/*"

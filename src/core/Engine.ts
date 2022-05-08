@@ -74,32 +74,32 @@ export class Engine {
     requestAnimationFrame(this.step.bind(this));
   }
 
+  protected last: number = 0;
+  protected accum: number = 0;
   /**
    * Update loop function, uses notions from
    * [this article](https://gafferongames.com/post/fix_your_timestep/)
    * to fix the timestep for fixed update loops (useful for physics and user interactions).
    */
-  protected step(): void {
-    this.run(); // Runs requestAnimationFrame to request next step.
-
+  protected step(now: number): void {
     // Use time system to update delta and fix timestep.
     const time = this.systems.get('Time') as Time;
-    time.updateDelta();
+    // Update delta and last frame time
+    time.updateDelta(now);
+    time.updateLast();
+    // Fix timestep of fixedStep methods
     time.fixTimestep(() => {
-      // TODO: Call with timestep as a parameter.
       this.systems.forEach((system) => {
         system.fixedStep();
       });
       this.rootNode.fixedStep();
     });
-    // TODO: Call with time.delta / time.slow as a parameter.
+    // Do non fixed steps
     this.systems.forEach((system) => {
       system.step();
     });
     this.rootNode.step();
-    // (async () => {
-    //   console.log(time.framerate);
-    // })();
-    time.updateLast();
+    // Request next step
+    requestAnimationFrame(this.step.bind(this));
   }
 }

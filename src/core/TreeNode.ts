@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { nanoid } from 'nanoid';
+import { nanoid } from 'nanoid/non-secure';
 
 /**
  * Basic TreeNode interface for engine's graph.

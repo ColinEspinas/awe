@@ -10,6 +10,10 @@ export class Time extends System {
    */
   private _delta: number = 0;
   /**
+   * Accumulator used to store time between frames
+   */
+  private accumulator: number = 0;
+  /**
    * Time of the last engine's step.
    */
   private last: number = performance.now();
@@ -28,12 +32,17 @@ export class Time extends System {
   /**
    * Ideal time of a step.
    */
-  private timestep: number = (1 / this.targetFramerate) * this.slow;
+  private _timestep: number = (1 / this.targetFramerate) * this.slow;
 
   /**
    * Get engine's delta time.
    */
   public get delta(): number { return this._delta; }
+
+  /**
+   * Get engine's timestep.
+   */
+  public get timestep(): number { return this._timestep; }
 
   /**
    * Get current framerate in frames per second.
@@ -44,7 +53,7 @@ export class Time extends System {
    */
   public set framerate(target: number) {
     this.targetFramerate = target;
-    this.timestep = (1 / this.targetFramerate) * this.slow;
+    this._timestep = (1 / this.targetFramerate) * this.slow;
   }
 
   /**
@@ -56,15 +65,16 @@ export class Time extends System {
    */
   public set slow(value: number) {
     this._slow = value;
-    this.timestep = (1 / this.targetFramerate) * this.slow;
+    this._timestep = (1 / this.targetFramerate) * this.slow;
   }
 
   /**
    * Updates the delta time, used by the engine's step loop.
    */
-  public updateDelta() {
-    this.now = performance.now();
-    this._delta += Math.min(1, (this.now - this.last) / 1000);
+  public updateDelta(now?: number) {
+    this.now = now ?? performance.now();
+    this._delta = (this.now - this.last) / 1000;
+    this.accumulator += this._delta;
     this.fps = 1 / this._delta;
   }
 
@@ -81,9 +91,15 @@ export class Time extends System {
    * @param callback.
    */
   public fixTimestep(callback: (timestep?: number) => void) {
-    while (this.delta > this.timestep) {
-      this._delta -= this.timestep;
-      callback(this.timestep / this.slow);
+    const updateStepsCount = 0;
+    while (this.accumulator >= this._timestep) {
+      callback(this._timestep);
+      this.accumulator -= this._timestep;
+      // To prevent spiral of death
+      if (updateStepsCount >= 240) {
+        this.accumulator = 0;
+        break;
+      }
     }
   }
 }
