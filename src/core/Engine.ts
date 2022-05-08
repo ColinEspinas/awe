@@ -74,8 +74,6 @@ export class Engine {
     requestAnimationFrame(this.step.bind(this));
   }
 
-  protected last: number = 0;
-  protected accum: number = 0;
   /**
    * Update loop function, uses notions from
    * [this article](https://gafferongames.com/post/fix_your_timestep/)
