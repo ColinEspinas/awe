@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import { nanoid } from 'nanoid/non-secure';
+import type { Engine } from './Engine';
 
 /**
  * Basic TreeNode interface for engine's graph.
@@ -12,9 +11,30 @@ export abstract class TreeNode {
   protected id: string;
 
   /**
+   * Node's parent node, if root node, the parent node is replaced by the engine instance.
+   */
+  protected _parent: TreeNode | Engine;
+
+  /**
+   * Engine instance of the node's graph.
+   */
+  protected engine: Engine;
+
+  /**
+   * Get parent node.
+   */
+  public get parent(): TreeNode | Engine { return this._parent; }
+
+  /**
    * Generates node's id.
    */
-  constructor() {
+  constructor(parent: TreeNode | Engine) {
+    this._parent = parent;
+    if (parent instanceof TreeNode) {
+      this.engine = parent.engine;
+    } else {
+      this.engine = parent;
+    }
     this.id = nanoid(16);
   }
 
