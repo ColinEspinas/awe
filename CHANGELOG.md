@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/colinespinas/awe/compare/v1.3.0...v1.4.0) (2022-05-08)
+
+
+### Bug Fixes
+
+* framerate option wasn't registered by the time system ([b604317](https://github.com/colinespinas/awe/commit/b604317f5a7882fb337e205f4ff85fc2028186d8))
+
+
+### Features
+
+* added parent and engine to node ([e54c8e2](https://github.com/colinespinas/awe/commit/e54c8e25db7dd2d912dfbc37c6fd916411bd4eb8))
+
 # [1.3.0](https://github.com/colinespinas/awe/compare/v1.2.0...v1.3.0) (2022-05-08)
 
 
