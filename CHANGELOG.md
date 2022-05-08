@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/colinespinas/awe/compare/v1.2.0...v1.3.0) (2022-05-08)
+
+
+### Bug Fixes
+
+* **step-loop:** step loop now working as intended, fixed deltatime issues ([5a82f1f](https://github.com/colinespinas/awe/commit/5a82f1fd8671bba62de4b2c8270ccd3eb85853c8))
+
+
+### Features
+
+* **step-loop:** added basic step loop with fixed timestep option ([37f23ab](https://github.com/colinespinas/awe/commit/37f23ab9068699b06e7add07514db13198a90029))
+
 # [1.2.0](https://github.com/colinespinas/awe/compare/v1.1.0...v1.2.0) (2021-11-26)
 
 
