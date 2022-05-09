@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <a href="https://colinespinas.github.io/Ineka"><strong>Explore the documentation »</strong></a>
+  <a href="https://ineka-dev.github.io/engine/"><strong>Explore the documentation »</strong></a>
   <br>
   <br>
   <a href="https://www.npmjs.com/package/@ineka/engine"><img alt="npm" src="https://img.shields.io/npm/v/@ineka/engine?style=for-the-badge"></a>
