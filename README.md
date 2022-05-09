@@ -1,6 +1,6 @@
 <br>
 <p align="center">
-  <img src="./.github/assets/banner.png" alt="Ineka">
+  <img src="https://raw.githubusercontent.com/ineka-dev/engine/master/.github/assets/banner.png" alt="Ineka">
 </p>
 
 <p align="center">
