@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/ineka-dev/engine/compare/v1.4.0...v2.0.0) (2022-05-09)
+
+
+### chore
+
+* awe is now Ineka ([d7e3462](https://github.com/ineka-dev/engine/commit/d7e34622e135940c82e496d7faefc4cdcb2f1695))
+
+
+### BREAKING CHANGES
+
+* Package name is now @ineka/engine
+
 # [1.4.0](https://github.com/colinespinas/awe/compare/v1.3.0...v1.4.0) (2022-05-08)
 
 
