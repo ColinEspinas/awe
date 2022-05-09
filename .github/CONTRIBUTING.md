@@ -2,7 +2,7 @@
 
 Any help and contribution is welcome, feel free to submit issues and/or contribute to the project.
 
-If you want to contribute but don’t know what to do, take a look at these two labels: [help wanted](https://github.com/colinespinas/awe/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) and [good first issue](https://github.com/colinespinas/awe/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
+If you want to contribute but don’t know what to do, take a look at these two labels: [help wanted](https://github.com/ineka-dev/engine/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) and [good first issue](https://github.com/ineka-dev/engine/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
 
 ## Prerequisites
 

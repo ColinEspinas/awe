@@ -4,7 +4,7 @@ import type { System } from './System';
 import { Time } from '../systems/Time';
 
 /**
- * The starting point of an AWE game application.
+ * The starting point of an Ineka game application.
  */
 export class Engine {
   /**
