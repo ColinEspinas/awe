@@ -1,10 +1,10 @@
 import type { EngineOptions } from '../options/EngineOptions';
-import { TreeNode } from './TreeNode';
-import { System } from './System';
+import type { TreeNode } from './TreeNode';
+import type { System } from './System';
 import { Time } from '../systems/Time';
 
 /**
- * The starting point of an AWE game application.
+ * The starting point of an Ineka game application.
  */
 export class Engine {
   /**
@@ -53,7 +53,12 @@ export class Engine {
    * Inits the engine by registering default core systems.
    */
   private init(): void {
-    this.systems.set('Time', new Time());
+    this.systems.set('Time', new Time(this));
+    // Set max framerate for fixed steps:
+    if (this.options.framerate) {
+      const time = this.systems.get('Time') as Time;
+      time.framerate = this.options.framerate;
+    }
   }
 
   /**
@@ -74,8 +79,6 @@ export class Engine {
     requestAnimationFrame(this.step.bind(this));
   }
 
-  protected last: number = 0;
-  protected accum: number = 0;
   /**
    * Update loop function, uses notions from
    * [this article](https://gafferongames.com/post/fix_your_timestep/)

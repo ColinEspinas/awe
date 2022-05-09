@@ -1,3 +1,4 @@
+import type { Engine } from './Engine';
 import { TreeNode } from './TreeNode';
 
 /**
@@ -17,8 +18,8 @@ export class InnerNode extends TreeNode {
   /**
    * Setup children and calls onCreate method.
    */
-  constructor() {
-    super();
+  constructor(parent: TreeNode | Engine) {
+    super(parent);
     this.children = [];
     this.onCreate();
   }

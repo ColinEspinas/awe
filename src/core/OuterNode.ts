@@ -1,3 +1,4 @@
+import type { Engine } from './Engine';
 import { TreeNode } from './TreeNode';
 
 /**
@@ -9,8 +10,8 @@ export class OuterNode extends TreeNode {
   /**
    * Calls onCreate method.
    */
-  constructor() {
-    super();
+  constructor(parent: TreeNode | Engine) {
+    super(parent);
     this.onCreate();
   }
 
