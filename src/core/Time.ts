@@ -1,6 +1,4 @@
-import { OuterNode } from '../core/OuterNode';
-
-export class Time extends OuterNode {
+export class Time {
   /**
    * Start of the engine's step.
    */
