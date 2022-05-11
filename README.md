@@ -24,16 +24,38 @@ This project tries to make things its own way by proposing a **graph based struc
 
 I prefer to warn you that this project was **made for personal use** but nothing is stopping you from using it or contributing.
 
-## Installation
+## Getting started
 
-The installation is pretty simple, just install the package using a package manager:
+### CLI installation
+The simplest way to create a game project for Ineka is by using:
+```bash
+npx @ineka/create-game <name>
+```
+
+If you have **npm 6+** you can also use:
+```bash
+npm init @ineka/game <name>
+# Or
+npm create @ineka/game <name>
+```
+
+You can find [the cli package sources here](https://github.com/ineka-dev/create-game).
+
+### Manual installation
+You can also install the package using a package manager:
 ```bash
 npm install @ineka/engine
 ```
 
 Then use a bundler like [webpack](https://webpack.js.org/), [rollup](https://rollupjs.org/) or [parcel](https://parceljs.org/) to bundle your game.
 
-A template repository will be available in the future to quickly bootstrap games made with Ineka.
+## Packages
+
+Ineka, by design, ships with a very minimal set of features. The goal is to offer an ecosystem of packages to customize the engine with **features you want and need** instead of imposing them.
+
+This concept aims to **reduce bloat** and offer **a large panel of customization options**.
+
+[**Find more about available packages here**](https://github.com/ineka-dev/packages)
 
 ## CI/CD Workflows
 
