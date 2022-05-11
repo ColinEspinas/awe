@@ -1,6 +1,6 @@
+import { OuterNode } from './OuterNode';
 import type { EngineOptions } from '../options/EngineOptions';
 import type { TreeNode } from './TreeNode';
-import type { System } from './System';
 import { Time } from '../systems/Time';
 
 /**
@@ -18,7 +18,7 @@ export class Engine {
   /**
    * Engine's attached systems.
    */
-  private _systems: Map<string, System> = new Map();
+  private _systems: Map<string, OuterNode> = new Map();
 
   /**
    * Get engine's options.
@@ -29,7 +29,7 @@ export class Engine {
    * Get engine's systems.
    * @readonly
    */
-  public get systems(): Map<string, System> { return this._systems; }
+  public get systems(): Map<string, OuterNode> { return this._systems; }
 
   /**
    * Merge given options with defaults and calls the engine's `init` method.
