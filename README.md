@@ -1,6 +1,6 @@
 <br>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ineka-dev/engine/master/.github/assets/banner.png" alt="Ineka">
+  <img src="https://raw.githubusercontent.com/ineka-dev/engine/main/.github/assets/banner.png" alt="Ineka">
 </p>
 
 <p align="center">
@@ -11,7 +11,7 @@
   <a href="https://www.npmjs.com/package/@ineka/engine"><img alt="npm (tag)" src="https://img.shields.io/npm/v/@ineka/engine/next?style=for-the-badge"></a>
   <a href="https://github.com/ineka-dev/engine/actions/workflows/release.yml"><img alt="GitHub Workflow Status Release" src="https://img.shields.io/github/workflow/status/ineka-dev/engine/Release?logo=github&style=for-the-badge"></a>
   <a href="https://github.com/ineka-dev/engine/actions/workflows/docs.yml"><img alt="GitHub Workflow Status Documentation" src="https://img.shields.io/github/workflow/status/ineka-dev/engine/Documentation%20generation?label=docs&logo=github&style=for-the-badge"></a>
-  <a href="https://github.com/ineka-dev/engine/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/ineka-dev/engine?color=black&style=for-the-badge"></a>
+  <a href="https://github.com/ineka-dev/engine/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/ineka-dev/engine?color=black&style=for-the-badge"></a>
   <a href="https://github.com/ineka-dev/engine/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues-raw/ineka-dev/engine?style=for-the-badge">
   </a>
   <a href="https://github.com/ineka-dev/engine/pulls"><img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr-raw/ineka-dev/engine?style=for-the-badge"></a>

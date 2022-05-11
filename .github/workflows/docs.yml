@@ -2,7 +2,7 @@ name: 'Documentation generation'
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build-and-test:
     name: 'Build and test project before generating documentation'
