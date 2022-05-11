@@ -1,7 +1,7 @@
+import { OuterNode } from './OuterNode';
 import type { EngineOptions } from '../options/EngineOptions';
 import type { TreeNode } from './TreeNode';
-import type { System } from './System';
-import { Time } from '../systems/Time';
+import { Time } from './Time';
 
 /**
  * The starting point of an Ineka game application.
@@ -18,7 +18,11 @@ export class Engine {
   /**
    * Engine's attached systems.
    */
-  private _systems: Map<string, System> = new Map();
+  private _systems: Map<string, OuterNode> = new Map();
+  /**
+   * Engine's time utility.
+   */
+  private _time: Time = new Time();
 
   /**
    * Get engine's options.
@@ -29,7 +33,12 @@ export class Engine {
    * Get engine's systems.
    * @readonly
    */
-  public get systems(): Map<string, System> { return this._systems; }
+  public get systems(): Map<string, OuterNode> { return this._systems; }
+  /**
+   * Get engine's time utility.
+   * @readonly
+   */
+  public get time(): Time { return this._time; }
 
   /**
    * Merge given options with defaults and calls the engine's `init` method.
@@ -52,14 +61,7 @@ export class Engine {
   /**
    * Inits the engine by registering default core systems.
    */
-  private init(): void {
-    this.systems.set('Time', new Time(this));
-    // Set max framerate for fixed steps:
-    if (this.options.framerate) {
-      const time = this.systems.get('Time') as Time;
-      time.framerate = this.options.framerate;
-    }
-  }
+  private init(): void {}
 
   /**
    * Loads systems/rootNode and starts the update loops.
@@ -85,13 +87,11 @@ export class Engine {
    * to fix the timestep for fixed update loops (useful for physics and user interactions).
    */
   protected step(now: number): void {
-    // Use time system to update delta and fix timestep.
-    const time = this.systems.get('Time') as Time;
     // Update delta and last frame time
-    time.updateDelta(now);
-    time.updateLast();
+    this.time.updateDelta(now);
+    this.time.updateLast();
     // Fix timestep of fixedStep methods
-    time.fixTimestep(() => {
+    this.time.fixTimestep(() => {
       this.systems.forEach((system) => {
         system.fixedStep();
       });

@@ -12,14 +12,12 @@
 
 // Core:
 import { Engine } from './core/Engine';
+import { Time } from './core/Time';
 
 // Nodes:
 import { TreeNode } from './core/TreeNode';
 import { InnerNode } from './core/InnerNode';
 import { OuterNode } from './core/OuterNode';
-
-// Systems:
-import { Time } from './systems/Time';
 
 // Types:
 import type { EngineOptions } from './options/EngineOptions';
@@ -27,12 +25,12 @@ import type { EngineOptions } from './options/EngineOptions';
 export {
   // Core:
   Engine,
+  Time,
+
+  // Nodes:
   TreeNode,
   InnerNode,
   OuterNode,
-
-  // Systems:
-  Time,
 
   // Types:
   EngineOptions,

@@ -1,6 +1,4 @@
-import { System } from '../core/System';
-
-export class Time extends System {
+export class Time {
   /**
    * Start of the engine's step.
    */
