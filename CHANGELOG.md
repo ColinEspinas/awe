@@ -1,3 +1,10 @@
+## [2.0.8](https://github.com/ineka-dev/engine/compare/v2.0.7...v2.0.8) (2022-10-02)
+
+
+### Bug Fixes
+
+* fixedStep where not called ([ed2b86a](https://github.com/ineka-dev/engine/commit/ed2b86aeba85e45c1a6e90644c3a2f900f51963d))
+
 ## [2.0.7](https://github.com/ineka-dev/engine/compare/v2.0.6...v2.0.7) (2022-10-02)
 
 

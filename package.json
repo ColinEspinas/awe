@@ -1,6 +1,6 @@
 {
   "name": "@ineka/engine",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "A small and customizable game engine",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
