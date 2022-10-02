@@ -1,3 +1,10 @@
+## [2.0.6](https://github.com/ineka-dev/engine/compare/v2.0.5...v2.0.6) (2022-10-02)
+
+
+### Bug Fixes
+
+* trying non-synchronous fixedSteps calls with promises ([10d04dc](https://github.com/ineka-dev/engine/commit/10d04dc22bbe52d40dffa3ad918e34279033cbd8))
+
 ## [2.0.5](https://github.com/ineka-dev/engine/compare/v2.0.4...v2.0.5) (2022-10-02)
 
 
