@@ -1,3 +1,10 @@
+## [2.0.7](https://github.com/ineka-dev/engine/compare/v2.0.6...v2.0.7) (2022-10-02)
+
+
+### Bug Fixes
+
+* fixed scope issues with fixedStep calls ([04c1bd3](https://github.com/ineka-dev/engine/commit/04c1bd3c55f4486f1c4f506fade7f88634d15dea))
+
 ## [2.0.6](https://github.com/ineka-dev/engine/compare/v2.0.5...v2.0.6) (2022-10-02)
 
 
