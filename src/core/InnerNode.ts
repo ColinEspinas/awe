@@ -25,13 +25,15 @@ export class InnerNode extends TreeNode {
   }
 
   /**
-   * Adds a child node to this node children.
+   * Adds a child node to this node children and loads it.
    * @param {TreeNode} node Node to add as child.
    * @returns {number} New children array length.
    * @sealed
    */
   public add(node: TreeNode): number {
     this.children.push(node);
+    // Load the added node if added after loading.
+    if (this.isLoaded) node.load();
     return this.children.length;
   }
 
@@ -67,6 +69,7 @@ export class InnerNode extends TreeNode {
     for (let i = 0, len = this.children.length; i !== len; ++i) {
       this.children[i].load();
     }
+    this.isLoaded = true;
   }
 
   /**
@@ -109,6 +112,7 @@ export class InnerNode extends TreeNode {
     for (let i = 0, len = this.children.length; i !== len; ++i) {
       this.children[i].unload();
     }
+    this.isLoaded = false;
   }
 
   /**
@@ -116,7 +120,7 @@ export class InnerNode extends TreeNode {
    * this function is to be implemented when needed.
    * @virtual
    */
-  protected onCreate(): void {}
+  protected onCreate(): void { }
 
   /**
    * Called by the parent node when loaded,
@@ -126,21 +130,21 @@ export class InnerNode extends TreeNode {
    * function will be called by the engine instead.
    * @virtual
    */
-  protected onLoad(): void {}
+  protected onLoad(): void { }
 
   /**
    * Called by the parent node at each step of the loop,
    * this function is to be implemented when needed.
    * @virtual
    */
-  protected onStep(): void {}
+  protected onStep(): void { }
 
   /**
    * Called by the parent node at each fixed step of the loop,
    * this function is to be implemented when needed.
    * @virtual
    */
-  protected onFixedStep(): void {}
+  protected onFixedStep(): void { }
 
   /**
    * Called by the parent node at unload,
@@ -150,5 +154,5 @@ export class InnerNode extends TreeNode {
    * function will be called by the engine instead.
    * @virtual
    */
-  protected onUnload(): void {}
+  protected onUnload(): void { }
 }

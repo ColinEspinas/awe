@@ -42,6 +42,7 @@ export class OuterNode extends TreeNode {
    */
   public load(): void {
     this.onLoad();
+    this.isLoaded = true;
   }
 
   /**
@@ -75,6 +76,7 @@ export class OuterNode extends TreeNode {
    */
   public unload(): void {
     this.onUnload();
+    this.isLoaded = false;
   }
 
   /**
@@ -82,7 +84,7 @@ export class OuterNode extends TreeNode {
    * this method is to be implemented when needed.
    * @virtual
    */
-  protected onCreate(): void {}
+  protected onCreate(): void { }
 
   /**
    * Called by the parent node when loaded,
@@ -92,21 +94,21 @@ export class OuterNode extends TreeNode {
    * method will be called by the engine instead.
    * @virtual
    */
-  protected onLoad(): void {}
+  protected onLoad(): void { }
 
   /**
    * Called by the parent node at each step of the loop,
    * this method is to be implemented when needed.
    * @virtual
    */
-  protected onStep(): void {}
+  protected onStep(): void { }
 
   /**
    * Called by the parent node at each fixed step of the loop,
    * this method is to be implemented when needed.
    * @virtual
    */
-  protected onFixedStep(): void {}
+  protected onFixedStep(): void { }
 
   /**
    * Called by the parent node at unload,
@@ -116,5 +118,5 @@ export class OuterNode extends TreeNode {
    * method will be called by the engine instead.
    * @virtual
    */
-  protected onUnload(): void {}
+  protected onUnload(): void { }
 }
