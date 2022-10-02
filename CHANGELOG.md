@@ -1,3 +1,10 @@
+## [2.0.5](https://github.com/ineka-dev/engine/compare/v2.0.4...v2.0.5) (2022-10-02)
+
+
+### Bug Fixes
+
+* **nodes:** added id getter and fixed children remove method ([c5076ba](https://github.com/ineka-dev/engine/commit/c5076ba1b849beae090c6a65ceee141eff856b6a))
+
 ## [2.0.4](https://github.com/ineka-dev/engine/compare/v2.0.3...v2.0.4) (2022-10-02)
 
 
