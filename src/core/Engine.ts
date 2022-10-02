@@ -93,9 +93,9 @@ export class Engine {
     // Fix timestep of fixedStep methods
     this.time.fixTimestep(() => {
       this.systems.forEach((system) => {
-        Promise.resolve().then(system.fixedStep);
+        Promise.resolve().then(() => system.fixedStep);
       });
-      Promise.resolve().then(this.rootNode.fixedStep);
+      Promise.resolve().then(() => this.rootNode.fixedStep);
     });
     // Do non fixed steps
     this.systems.forEach((system) => {
