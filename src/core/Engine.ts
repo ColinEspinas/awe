@@ -61,7 +61,7 @@ export class Engine {
   /**
    * Inits the engine by registering default core systems.
    */
-  private init(): void {}
+  private init(): void { }
 
   /**
    * Loads systems/rootNode and starts the update loops.

@@ -21,6 +21,11 @@ export abstract class TreeNode {
   protected engine: Engine;
 
   /**
+   * Get wether the node is loaded.
+   */
+  protected isLoaded: boolean;
+
+  /**
    * Get parent node.
    */
   public get parent(): TreeNode | Engine { return this._parent; }
@@ -36,6 +41,7 @@ export abstract class TreeNode {
       this.engine = parent;
     }
     this.id = nanoid(16);
+    this.isLoaded = false;
   }
 
   /**
