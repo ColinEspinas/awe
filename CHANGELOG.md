@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/ineka-dev/engine/compare/v2.0.8...v2.1.0) (2022-10-15)
+
+
+### Features
+
+* added engine error handling and made engine container more available ([d8669a2](https://github.com/ineka-dev/engine/commit/d8669a28f6ad20fca173c557a9ebd982211e9f6d))
+
 ## [2.0.8](https://github.com/ineka-dev/engine/compare/v2.0.7...v2.0.8) (2022-10-02)
 
 
