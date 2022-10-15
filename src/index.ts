@@ -22,6 +22,9 @@ import { OuterNode } from './core/OuterNode';
 // Types:
 import type { EngineOptions } from './options/EngineOptions';
 
+// Errors:
+import { EngineError } from './errors/EngineError';
+
 export {
   // Core:
   Engine,
@@ -34,4 +37,7 @@ export {
 
   // Types:
   EngineOptions,
+
+  // Errors:
+  EngineError,
 };

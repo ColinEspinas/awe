@@ -8,7 +8,7 @@ export abstract class TreeNode {
   /**
    * Node's ID, generate it with [nanoid](https://github.com/ai/nanoid) if applicable.
    */
-  protected id: string;
+  protected _id: string;
 
   /**
    * Node's parent node, if root node, the parent node is replaced by the engine instance.
@@ -26,6 +26,11 @@ export abstract class TreeNode {
   protected isLoaded: boolean;
 
   /**
+   * Get the node's ID.
+   */
+  public get id(): string { return this._id; }
+
+  /**
    * Get parent node.
    */
   public get parent(): TreeNode | Engine { return this._parent; }
@@ -40,7 +45,7 @@ export abstract class TreeNode {
     } else {
       this.engine = parent;
     }
-    this.id = nanoid(16);
+    this._id = nanoid(16);
     this.isLoaded = false;
   }
 

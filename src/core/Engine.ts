@@ -12,6 +12,10 @@ export class Engine {
    */
   private _options: EngineOptions;
   /**
+   * Engine container element.
+   */
+  private _container: HTMLElement;
+  /**
    * Root node of the engine's graph.
    */
   public rootNode: TreeNode;
@@ -29,6 +33,11 @@ export class Engine {
    * @readonly
    */
   public get options(): EngineOptions { return this._options; }
+  /**
+   * Get engine's container element.
+   * @readonly
+   */
+  public get container(): HTMLElement { return this._container; }
   /**
    * Get engine's systems.
    * @readonly
@@ -55,6 +64,7 @@ export class Engine {
       framerate: null,
       ...options,
     };
+    this._container = document.querySelector(this._options.container);
     this.init();
   }
 
@@ -93,9 +103,9 @@ export class Engine {
     // Fix timestep of fixedStep methods
     this.time.fixTimestep(() => {
       this.systems.forEach((system) => {
-        system.fixedStep();
+        Promise.resolve().then(() => system.fixedStep());
       });
-      this.rootNode.fixedStep();
+      Promise.resolve().then(() => this.rootNode.fixedStep());
     });
     // Do non fixed steps
     this.systems.forEach((system) => {

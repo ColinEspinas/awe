@@ -1,3 +1,38 @@
+# [2.1.0](https://github.com/ineka-dev/engine/compare/v2.0.8...v2.1.0) (2022-10-15)
+
+
+### Features
+
+* added engine error handling and made engine container more available ([d8669a2](https://github.com/ineka-dev/engine/commit/d8669a28f6ad20fca173c557a9ebd982211e9f6d))
+
+## [2.0.8](https://github.com/ineka-dev/engine/compare/v2.0.7...v2.0.8) (2022-10-02)
+
+
+### Bug Fixes
+
+* fixedStep where not called ([ed2b86a](https://github.com/ineka-dev/engine/commit/ed2b86aeba85e45c1a6e90644c3a2f900f51963d))
+
+## [2.0.7](https://github.com/ineka-dev/engine/compare/v2.0.6...v2.0.7) (2022-10-02)
+
+
+### Bug Fixes
+
+* fixed scope issues with fixedStep calls ([04c1bd3](https://github.com/ineka-dev/engine/commit/04c1bd3c55f4486f1c4f506fade7f88634d15dea))
+
+## [2.0.6](https://github.com/ineka-dev/engine/compare/v2.0.5...v2.0.6) (2022-10-02)
+
+
+### Bug Fixes
+
+* trying non-synchronous fixedSteps calls with promises ([10d04dc](https://github.com/ineka-dev/engine/commit/10d04dc22bbe52d40dffa3ad918e34279033cbd8))
+
+## [2.0.5](https://github.com/ineka-dev/engine/compare/v2.0.4...v2.0.5) (2022-10-02)
+
+
+### Bug Fixes
+
+* **nodes:** added id getter and fixed children remove method ([c5076ba](https://github.com/ineka-dev/engine/commit/c5076ba1b849beae090c6a65ceee141eff856b6a))
+
 ## [2.0.4](https://github.com/ineka-dev/engine/compare/v2.0.3...v2.0.4) (2022-10-02)
 
 

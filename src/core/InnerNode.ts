@@ -47,7 +47,7 @@ export class InnerNode extends TreeNode {
     let removedNode;
     this.children = this.children.filter((n: TreeNode) => {
       // Unloads and filters the given node out.
-      if (n === node) {
+      if (n.id === node.id) {
         removedNode = n;
         n.unload();
         return false;
