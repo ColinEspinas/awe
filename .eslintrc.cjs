@@ -18,7 +18,6 @@ module.exports = {
     indent: 'off',
     '@typescript-eslint/indent': ['error', 2],
     'import/prefer-default-export': 'off',
-    'import/no-default-export': 'error',
     '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
     '@typescript-eslint/no-explicit-any': 'error',
     'import/extensions': ['error', 'never'],
