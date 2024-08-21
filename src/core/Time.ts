@@ -2,19 +2,19 @@ export class Time {
   /**
    * Start of the engine's step.
    */
-  private now: number
+  private _now: number = performance.now()
   /**
-   * Delta time between frame.
+   * Delta time between frame in seconds.
    */
   private _delta: number = 0
   /**
    * Accumulator used to store time between frames
    */
-  private accumulator: number = 0
+  private _accumulator: number = 0
   /**
    * Time of the last engine's step.
    */
-  private last: number = performance.now()
+  private _last: number = performance.now()
   /**
    * Slow motion scaling factor.
    */
@@ -22,37 +22,26 @@ export class Time {
   /**
    * Target framerate of the engine.
    */
-  private targetFramerate: number = 60
+  private _targetFramerate: number = 60
   /**
    * Current framerate in frames per second.
    */
-  private fps: number
-  /**
-   * Ideal time of a step.
-   */
-  private _timestep: number = (1 / this.targetFramerate) * this.slow
+  private _fps: number = 0
 
   /**
-   * Get engine's delta time.
+   * Get engine's delta time in seconds.
    */
   public get delta(): number { return this._delta }
 
   /**
-   * Get engine's timestep.
+   * Get the current engine's time for a step in seconds (this is the ideal time of a frame).
    */
-  public get timestep(): number { return this._timestep }
+  public get timestep(): number { return (1 / this._targetFramerate) * this._slow }
 
   /**
    * Get current framerate in frames per second.
    */
-  public get framerate(): number { return this.fps }
-  /**
-   * Set an ideal maximum framerate in frames per second.
-   */
-  public set framerate(target: number) {
-    this.targetFramerate = target
-    this._timestep = (1 / this.targetFramerate) * this.slow
-  }
+  public get framerate(): number { return this._fps }
 
   /**
    * Get slow scaling factor.
@@ -63,24 +52,23 @@ export class Time {
    */
   public set slow(value: number) {
     this._slow = value
-    this._timestep = (1 / this.targetFramerate) * this.slow
+  }
+
+  public get targetFramerate(): number { return this._targetFramerate }
+
+  public set targetFramerate(value: number) {
+    this._targetFramerate = value
   }
 
   /**
-   * Updates the delta time, used by the engine's step loop.
+   * Updates delta time and related variables, used by the engine's step loop.
    */
-  public updateDelta(now?: number) {
-    this.now = now ?? performance.now()
-    this._delta = (this.now - this.last) / 1000
-    this.accumulator += this._delta
-    this.fps = 1 / this._delta
-  }
-
-  /**
-   * Updates the time of the last update.
-   */
-  public updateLast() {
-    this.last = this.now
+  public update(now?: number) {
+    this._now = now ?? performance.now()
+    this._delta = (this._now - this._last) / 1000
+    this._last = this._now
+    this._accumulator += this._delta
+    this._fps = 1 / this._delta
   }
 
   /**
@@ -88,14 +76,15 @@ export class Time {
    * Used in engine's `step` method to make fixed steps.
    * @param callback
    */
-  public fixTimestep(callback: (timestep?: number) => void) {
-    const updateStepsCount = 0
-    while (this.accumulator >= this._timestep) {
-      callback(this._timestep)
-      this.accumulator -= this._timestep
+  public fixTimestep(callback: () => void) {
+    let updateStepsCount = 0
+    while (this._accumulator >= this.timestep) {
+      callback()
+      this._accumulator -= this.timestep
+      ++updateStepsCount
       // To prevent spiral of death
       if (updateStepsCount >= 240) {
-        this.accumulator = 0
+        this._accumulator = 0
         break
       }
     }
