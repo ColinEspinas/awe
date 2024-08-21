@@ -1,4 +1,5 @@
 import type { Engine } from '../core/Engine'
+import type { EngineErrorCode } from '../types/errors'
 
 /**
  * This class extends the native `Error` class to work with the engine.
@@ -21,7 +22,7 @@ export class EngineError extends Error {
    */
   protected code: string | number
 
-  constructor(engine: Engine, code: string | number, message: string) {
+  constructor(engine: Engine, code: EngineErrorCode, message: string) {
     super(`${message} (code: ${code})`)
     this.engine = engine
     this.code = code
