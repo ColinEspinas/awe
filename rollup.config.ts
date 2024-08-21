@@ -1,20 +1,20 @@
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-default-export */
+import { env } from 'node:process'
+import { defineConfig } from 'rollup'
+import type { RollupOptions } from 'rollup'
+import dts from 'rollup-plugin-dts'
+import esbuild from 'rollup-plugin-esbuild'
 
-import { env } from 'node:process';
-import { defineConfig } from 'rollup';
-import type { RollupOptions } from 'rollup';
-import dts from 'rollup-plugin-dts';
-import esbuild from 'rollup-plugin-esbuild';
+import pkg from './package.json' assert { type: 'json' }
 
-import pkg from './package.json' assert { type: 'json' };
-const name = pkg.main.replace(/\.js$/, '');
+const name = pkg.main.replace(/\.js$/, '')
 
-const bundle = (config: RollupOptions): RollupOptions => ({
-  ...config,
-  input: 'src/index.ts',
-  external: ['nanoid', 'nanoid/non-secure'],
-});
+function bundle(config: RollupOptions): RollupOptions {
+  return {
+    ...config,
+    input: 'src/index.ts',
+    external: ['nanoid', 'nanoid/non-secure'],
+  }
+}
 
 export default defineConfig([
   bundle({
@@ -34,4 +34,4 @@ export default defineConfig([
       format: 'es',
     },
   }),
-]);
+])

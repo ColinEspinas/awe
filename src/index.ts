@@ -6,24 +6,24 @@
  *   \ \  \ \  \\ \  \ \  \_|\ \ \  \\ \  \ \  \ \  \
  *    \ \__\ \__\\ \__\ \_______\ \__\\ \__\ \__\ \__\
  *     \|__|\|__| \|__|\|_______|\|__| \|__|\|__|\|__|
-*/
+ */
 
 /*! Ineka | MIT License | github.com/ineka-dev/engine */
 
 // Core:
-import { Engine } from './core/Engine';
-import { Time } from './core/Time';
+import { Engine } from './core/Engine'
+import { Time } from './core/Time'
 
 // Nodes:
-import { TreeNode } from './core/TreeNode';
-import { InnerNode } from './core/InnerNode';
-import { OuterNode } from './core/OuterNode';
+import { TreeNode } from './core/TreeNode'
+import { InnerNode } from './core/InnerNode'
+import { OuterNode } from './core/OuterNode'
 
 // Types:
-import type { EngineOptions } from './options/EngineOptions';
+import type { EngineOptions } from './options/EngineOptions'
 
 // Errors:
-import { EngineError } from './errors/EngineError';
+import { EngineError } from './errors/EngineError'
 
 export {
   // Core:
@@ -40,4 +40,4 @@ export {
 
   // Errors:
   EngineError,
-};
+}

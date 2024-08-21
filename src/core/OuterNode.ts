@@ -1,5 +1,5 @@
-import type { Engine } from './Engine';
-import { TreeNode } from './TreeNode';
+import type { Engine } from './Engine'
+import { TreeNode } from './TreeNode'
 
 /**
  * An outer node is a node of the tree that does not have child nodes.
@@ -11,8 +11,8 @@ export class OuterNode extends TreeNode {
    * Calls onCreate method.
    */
   constructor(parent: TreeNode | Engine) {
-    super(parent);
-    this.onCreate();
+    super(parent)
+    this.onCreate()
   }
 
   /**
@@ -21,7 +21,7 @@ export class OuterNode extends TreeNode {
    * @sealed
    */
   public add(): number {
-    throw new Error('You tried to add a child to an outer node. Outer nodes cannot have children.');
+    throw new Error('You tried to add a child to an outer node. Outer nodes cannot have children.')
   }
 
   /**
@@ -30,7 +30,7 @@ export class OuterNode extends TreeNode {
    * @sealed
    */
   public remove(): TreeNode {
-    throw new Error('You tried to remove a child to an outer node. Outer nodes cannot have children.');
+    throw new Error('You tried to remove a child to an outer node. Outer nodes cannot have children.')
   }
 
   /**
@@ -41,8 +41,8 @@ export class OuterNode extends TreeNode {
    * @sealed
    */
   public load(): void {
-    this.onLoad();
-    this.isLoaded = true;
+    this.onLoad()
+    this.isLoaded = true
   }
 
   /**
@@ -53,7 +53,7 @@ export class OuterNode extends TreeNode {
    * @sealed
    */
   public step(): void {
-    this.onStep();
+    this.onStep()
   }
 
   /**
@@ -64,7 +64,7 @@ export class OuterNode extends TreeNode {
    * @sealed
    */
   public fixedStep(): void {
-    this.onFixedStep();
+    this.onFixedStep()
   }
 
   /**
@@ -75,8 +75,8 @@ export class OuterNode extends TreeNode {
    * @sealed
    */
   public unload(): void {
-    this.onUnload();
-    this.isLoaded = false;
+    this.onUnload()
+    this.isLoaded = false
   }
 
   /**

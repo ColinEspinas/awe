@@ -1,5 +1,5 @@
-import type { Engine } from './Engine';
-import { TreeNode } from './TreeNode';
+import type { Engine } from './Engine'
+import { TreeNode } from './TreeNode'
 
 /**
  * An inner node is a node of the tree that has child nodes.
@@ -13,15 +13,15 @@ export class InnerNode extends TreeNode {
   /**
    * Node's children nodes.
    */
-  protected children: TreeNode[];
+  protected children: TreeNode[]
 
   /**
    * Setup children and calls onCreate method.
    */
   constructor(parent: TreeNode | Engine) {
-    super(parent);
-    this.children = [];
-    this.onCreate();
+    super(parent)
+    this.children = []
+    this.onCreate()
   }
 
   /**
@@ -31,10 +31,11 @@ export class InnerNode extends TreeNode {
    * @sealed
    */
   public add(node: TreeNode): number {
-    this.children.push(node);
+    this.children.push(node)
     // Load the added node if added after loading.
-    if (this.isLoaded) node.load();
-    return this.children.length;
+    if (this.isLoaded)
+      node.load()
+    return this.children.length
   }
 
   /**
@@ -44,17 +45,17 @@ export class InnerNode extends TreeNode {
    * @sealed
    */
   public remove(node: TreeNode): TreeNode {
-    let removedNode;
+    let removedNode
     this.children = this.children.filter((n: TreeNode) => {
       // Unloads and filters the given node out.
       if (n.id === node.id) {
-        removedNode = n;
-        n.unload();
-        return false;
+        removedNode = n
+        n.unload()
+        return false
       }
-      return true;
-    });
-    return removedNode;
+      return true
+    })
+    return removedNode
   }
 
   /**
@@ -65,11 +66,11 @@ export class InnerNode extends TreeNode {
    * @sealed
    */
   public load(): void {
-    this.onLoad();
+    this.onLoad()
     for (let i = 0, len = this.children.length; i !== len; ++i) {
-      this.children[i].load();
+      this.children[i].load()
     }
-    this.isLoaded = true;
+    this.isLoaded = true
   }
 
   /**
@@ -80,9 +81,9 @@ export class InnerNode extends TreeNode {
    * @sealed
    */
   public step(): void {
-    this.onStep();
+    this.onStep()
     for (let i = 0, len = this.children.length; i !== len; ++i) {
-      this.children[i].step();
+      this.children[i].step()
     }
   }
 
@@ -94,9 +95,9 @@ export class InnerNode extends TreeNode {
    * @sealed
    */
   public fixedStep(): void {
-    this.onFixedStep();
+    this.onFixedStep()
     for (let i = 0, len = this.children.length; i !== len; ++i) {
-      this.children[i].fixedStep();
+      this.children[i].fixedStep()
     }
   }
 
@@ -108,11 +109,11 @@ export class InnerNode extends TreeNode {
    * @sealed
    */
   public unload(): void {
-    this.onUnload();
+    this.onUnload()
     for (let i = 0, len = this.children.length; i !== len; ++i) {
-      this.children[i].unload();
+      this.children[i].unload()
     }
-    this.isLoaded = false;
+    this.isLoaded = false
   }
 
   /**

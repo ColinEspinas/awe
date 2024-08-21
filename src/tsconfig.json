@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
-    "strict": false
+    "strict": false,
+    "outDir": "dist"
   },
   "include": [
     "./**/*"
-  ],
+  ]
 }

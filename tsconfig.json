@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
     "strict": true,
+    "outDir": "dist",
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "./**/*"
@@ -14,5 +14,5 @@
   "typedocOptions": {
     "entryPoints": ["src/index.ts"],
     "out": "docs"
-  },
+  }
 }

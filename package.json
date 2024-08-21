@@ -1,21 +1,33 @@
 {
   "name": "@ineka/engine",
+  "type": "module",
   "version": "2.1.1",
   "description": "A small and customizable game engine",
+  "author": "Colin Espinas",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ineka-dev/engine.git"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "type": "module",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "dev": "rollup -cw",
     "build": "rollup --config rollup.config.ts --configPlugin typescript --environment NODE_ENV:production",
     "docs": "typedoc ./src",
-    "lint": "eslint ./src --cache --fix --ext .js,.ts",
+    "lint": "eslint . --flag unstable_ts_config",
+    "lint:fix": "eslint . --fix --flag unstable_ts_config",
     "semantic-release": "semantic-release"
   },
-  "author": "Colin Espinas",
-  "license": "MIT",
+  "dependencies": {
+    "nanoid": "^5.0.7"
+  },
   "devDependencies": {
+    "@antfu/eslint-config": "^2.27.0",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/node": "^22.4.2",
     "esbuild": "^0.23.1",
@@ -27,17 +39,7 @@
     "typedoc": "^0.26.6",
     "typescript": "~5.5.4"
   },
-  "dependencies": {
-    "nanoid": "^5.0.7"
-  },
   "publishConfig": {
     "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ineka-dev/engine.git"
-  },
-  "files": [
-    "dist"
-  ]
+  }
 }
