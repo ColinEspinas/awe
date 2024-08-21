@@ -21,8 +21,8 @@
     "docs": "typedoc ./src",
     "lint": "eslint . --flag unstable_ts_config",
     "lint:fix": "eslint . --fix --flag unstable_ts_config",
-    "release": "changeset publish",
-    "version": "changeset version"
+    "release:publish": "changeset publish",
+    "release:version": "changeset version"
   },
   "dependencies": {
     "nanoid": "^5.0.7"
