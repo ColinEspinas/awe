@@ -21,13 +21,15 @@
     "docs": "typedoc ./src",
     "lint": "eslint . --flag unstable_ts_config",
     "lint:fix": "eslint . --fix --flag unstable_ts_config",
-    "semantic-release": "semantic-release"
+    "release": "changeset publish",
+    "version": "changeset version"
   },
   "dependencies": {
     "nanoid": "^5.0.7"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.27.0",
+    "@changesets/cli": "^2.27.7",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/node": "^22.4.2",
     "esbuild": "^0.23.1",

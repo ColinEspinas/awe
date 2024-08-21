@@ -8,8 +8,7 @@
   <br>
   <br>
   <a href="https://www.npmjs.com/package/@ineka/engine"><img alt="npm" src="https://img.shields.io/npm/v/@ineka/engine?style=for-the-badge"></a>
-  <a href="https://www.npmjs.com/package/@ineka/engine"><img alt="npm (tag)" src="https://img.shields.io/npm/v/@ineka/engine/next?style=for-the-badge"></a>
-  <a href="https://github.com/ineka-dev/engine/actions/workflows/release.yml"><img alt="GitHub Workflow Status Release" src="https://img.shields.io/github/actions/workflow/status/ineka-dev/engine/release.yml?logo=github&style=for-the-badge"></a>  
+  <a href="https://github.com/ineka-dev/engine/actions/workflows/release.yml"><img alt="GitHub Workflow Status Release" src="https://img.shields.io/github/actions/workflow/status/ineka-dev/engine/release.yml?logo=github&style=for-the-badge"></a>
   <a href="https://github.com/ineka-dev/engine/actions/workflows/docs.yml"><img alt="GitHub Workflow Status Documentation" src="https://img.shields.io/github/actions/workflow/status/ineka-dev/engine/docs.yml?label=docs&logo=github&style=for-the-badge"></a>
   <a href="https://github.com/ineka-dev/engine/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/ineka-dev/engine?color=black&style=for-the-badge"></a>
   <a href="https://github.com/ineka-dev/engine/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues-raw/ineka-dev/engine?style=for-the-badge">
@@ -56,15 +55,6 @@ Ineka, by design, ships with a very minimal set of features. The goal is to offe
 This concept aims to **reduce bloat** and offer **a large panel of customization options**.
 
 [**Find more about available packages here**](https://github.com/ineka-dev/packages)
-
-## CI/CD Workflows
-
-This project uses GitHub Actions for CI/CD jobs.
-
-We have workflows to:
-- Build and test the project on each pull request.
-- Build, test and release the project.
-- Generate a documentation and deploy it.
 
 ## Contributing
 Any help and contribution is welcome, feel free to submit issues and/or contribute to the project.
