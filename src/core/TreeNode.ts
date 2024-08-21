@@ -1,5 +1,5 @@
-import { nanoid } from 'nanoid/non-secure';
-import type { Engine } from './Engine';
+import { nanoid } from 'nanoid/non-secure'
+import type { Engine } from './Engine'
 
 /**
  * Basic TreeNode interface for engine's graph.
@@ -8,45 +8,46 @@ export abstract class TreeNode {
   /**
    * Node's ID, generate it with [nanoid](https://github.com/ai/nanoid) if applicable.
    */
-  protected _id: string;
+  protected _id: string
 
   /**
    * Node's parent node, if root node, the parent node is replaced by the engine instance.
    */
-  protected _parent: TreeNode | Engine;
+  protected _parent: TreeNode | Engine
 
   /**
    * Engine instance of the node's graph.
    */
-  protected engine: Engine;
+  protected engine: Engine
 
   /**
    * Get wether the node is loaded.
    */
-  protected isLoaded: boolean;
+  protected isLoaded: boolean
 
   /**
    * Get the node's ID.
    */
-  public get id(): string { return this._id; }
+  public get id(): string { return this._id }
 
   /**
    * Get parent node.
    */
-  public get parent(): TreeNode | Engine { return this._parent; }
+  public get parent(): TreeNode | Engine { return this._parent }
 
   /**
    * Generates node's id.
    */
   constructor(parent: TreeNode | Engine) {
-    this._parent = parent;
+    this._parent = parent
     if (parent instanceof TreeNode) {
-      this.engine = parent.engine;
-    } else {
-      this.engine = parent;
+      this.engine = parent.engine
     }
-    this._id = nanoid(16);
-    this.isLoaded = false;
+    else {
+      this.engine = parent
+    }
+    this._id = nanoid(16)
+    this.isLoaded = false
   }
 
   /**
@@ -58,7 +59,7 @@ export abstract class TreeNode {
    * @param {TreeNode} node Node to add as child.
    * @returns {number} New children array length.
    */
-  public abstract add(node: TreeNode): number;
+  public abstract add(node: TreeNode): number
 
   /**
    * Removes a child node from the node children.
@@ -69,7 +70,7 @@ export abstract class TreeNode {
    * @param {TreeNode} node Node to remove of children.
    * @returns {TreeNode} Removed node instance.
    */
-  public abstract remove(node: TreeNode): TreeNode;
+  public abstract remove(node: TreeNode): TreeNode
 
   /**
    * To execute on instance creation (in the node's constructor).
@@ -81,7 +82,7 @@ export abstract class TreeNode {
    * We do not need a `create` method as this is an
    * internal behavior of nodes.
    */
-  protected abstract onCreate(): void;
+  protected abstract onCreate(): void
 
   /**
    * Called at node loading in the scene graph.
@@ -90,12 +91,12 @@ export abstract class TreeNode {
    * In the case of an inner node, this method
    * will call the children's `load` methods too.
    */
-  public abstract load(): void;
+  public abstract load(): void
 
   /**
    * To execute at node loading/initialization in the graph.
    */
-  protected abstract onLoad(): void;
+  protected abstract onLoad(): void
 
   /**
    * Called at each step of the loop by the parent
@@ -105,12 +106,12 @@ export abstract class TreeNode {
    * In the case of an inner node, this method
    * will call the children's `step` methods too.
    */
-  public abstract step(): void;
+  public abstract step(): void
 
   /**
    * To execute at each step of the loop.
    */
-  protected abstract onStep(): void;
+  protected abstract onStep(): void
 
   /**
    * Called at each fixed step of the loop by the parent
@@ -120,12 +121,12 @@ export abstract class TreeNode {
    * In the case of an inner node, this method
    * will call the children's `fixedStep` methods too.
    */
-  public abstract fixedStep(): void;
+  public abstract fixedStep(): void
 
   /**
    * To execute at each fixed step of the loop.
    */
-  protected abstract onFixedStep(): void;
+  protected abstract onFixedStep(): void
 
   /**
    * Called at node unloading in the scene graph.
@@ -134,10 +135,10 @@ export abstract class TreeNode {
    * In the case of an inner node, this method
    * will call the children's `unload` methods too.
    */
-  public abstract unload(): void;
+  public abstract unload(): void
 
   /**
    * To execute at node unloading in the graph.
    */
-  protected abstract onUnload(): void;
+  protected abstract onUnload(): void
 }

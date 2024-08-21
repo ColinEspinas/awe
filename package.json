@@ -1,52 +1,47 @@
 {
   "name": "@ineka/engine",
+  "type": "module",
   "version": "2.1.1",
   "description": "A small and customizable game engine",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "type": "module",
-  "scripts": {
-    "dev": "rollup -cw",
-    "build": "rollup -c --environment NODE_ENV:production",
-    "docs": "typedoc ./src",
-    "lint": "eslint ./src --cache --fix --ext .js,.ts",
-    "semantic-release": "semantic-release"
-  },
   "author": "Colin Espinas",
   "license": "MIT",
-  "devDependencies": {
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.61.0",
-    "@typescript-eslint/parser": "^5.61.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "esbuild": "^0.18.11",
-    "eslint": "^8.44.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.27.5",
-    "rollup": "^3.26.2",
-    "rollup-plugin-dts": "^5.3.0",
-    "rollup-plugin-esbuild": "^5.0.0",
-    "semantic-release": "^21.0.7",
-    "typedoc": "^0.24.8",
-    "typescript": "5.1"
-  },
-  "dependencies": {
-    "nanoid": "^4.0.2"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ineka-dev/engine.git"
   },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
-  ]
+  ],
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "dev": "rollup -cw",
+    "build": "rollup --config rollup.config.ts --configPlugin typescript --environment NODE_ENV:production",
+    "docs": "typedoc ./src",
+    "lint": "eslint . --flag unstable_ts_config",
+    "lint:fix": "eslint . --fix --flag unstable_ts_config",
+    "release": "changeset publish",
+    "version": "changeset version"
+  },
+  "dependencies": {
+    "nanoid": "^5.0.7"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.27.0",
+    "@changesets/cli": "^2.27.7",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/node": "^22.4.2",
+    "esbuild": "^0.23.1",
+    "eslint": "^9.9.0",
+    "rollup": "^4.21.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "tslib": "^2.6.3",
+    "typedoc": "^0.26.6",
+    "typescript": "~5.5.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }
