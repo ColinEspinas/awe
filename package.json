@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "dev": "rollup -cw",
+    "dev": "rollup -w --config rollup.config.ts --configPlugin typescript",
     "build": "rollup --config rollup.config.ts --configPlugin typescript --environment NODE_ENV:production",
     "docs:generate": "typedoc",
     "docs:serve": "serve docs",
