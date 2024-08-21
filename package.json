@@ -18,7 +18,8 @@
     "preinstall": "npx only-allow pnpm",
     "dev": "rollup -cw",
     "build": "rollup --config rollup.config.ts --configPlugin typescript --environment NODE_ENV:production",
-    "docs": "typedoc ./src",
+    "docs:generate": "typedoc",
+    "docs:serve": "serve docs",
     "lint": "eslint . --flag unstable_ts_config",
     "lint:fix": "eslint . --fix --flag unstable_ts_config",
     "release:publish": "changeset publish",
@@ -38,6 +39,7 @@
     "rollup": "^4.21.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-esbuild": "^6.1.1",
+    "serve": "^14.2.3",
     "tslib": "^2.6.3",
     "typedoc": "^0.26.6",
     "typescript": "~5.5.4"
