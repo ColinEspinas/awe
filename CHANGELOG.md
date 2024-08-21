@@ -1,4 +1,4 @@
-## [2.1.1](https://github.com/ineka-dev/engine/compare/v2.1.0...v2.1.1) (2023-01-13)
+# @ineka-dev/engine
 
 ## 2.1.2
 
@@ -6,7 +6,9 @@
 
 - [#14](https://github.com/ineka-dev/engine/pull/14) [`10d5840`](https://github.com/ineka-dev/engine/commit/10d584073f459a4a6e5ec5ae6c48deab5166c3c5) Thanks [@ColinEspinas](https://github.com/ColinEspinas)! - Updated project tooling
 
-# [2.1.0](https://github.com/ineka-dev/engine/compare/v2.0.8...v2.1.0) (2022-10-15)
+## [2.1.1](https://github.com/ineka-dev/engine/compare/v2.1.0...v2.1.1) (2023-01-13)
+
+## [2.1.0](https://github.com/ineka-dev/engine/compare/v2.0.8...v2.1.0) (2022-10-15)
 
 ### Features
 
@@ -48,7 +50,7 @@
 
 ## [2.0.1](https://github.com/ineka-dev/engine/compare/v2.0.0...v2.0.1) (2022-05-11)
 
-# [2.0.0](https://github.com/ineka-dev/engine/compare/v1.4.0...v2.0.0) (2022-05-09)
+## [2.0.0](https://github.com/ineka-dev/engine/compare/v1.4.0...v2.0.0) (2022-05-09)
 
 ### chore
 
@@ -58,7 +60,7 @@
 
 - Package name is now @ineka/engine
 
-# [1.4.0](https://github.com/colinespinas/awe/compare/v1.3.0...v1.4.0) (2022-05-08)
+## [1.4.0](https://github.com/colinespinas/awe/compare/v1.3.0...v1.4.0) (2022-05-08)
 
 ### Bug Fixes
 
@@ -68,7 +70,7 @@
 
 - added parent and engine to node ([e54c8e2](https://github.com/colinespinas/awe/commit/e54c8e25db7dd2d912dfbc37c6fd916411bd4eb8))
 
-# [1.3.0](https://github.com/colinespinas/awe/compare/v1.2.0...v1.3.0) (2022-05-08)
+## [1.3.0](https://github.com/colinespinas/awe/compare/v1.2.0...v1.3.0) (2022-05-08)
 
 ### Bug Fixes
 
@@ -78,19 +80,19 @@
 
 - **step-loop:** added basic step loop with fixed timestep option ([37f23ab](https://github.com/colinespinas/awe/commit/37f23ab9068699b06e7add07514db13198a90029))
 
-# [1.2.0](https://github.com/colinespinas/awe/compare/v1.1.0...v1.2.0) (2021-11-26)
+## [1.2.0](https://github.com/colinespinas/awe/compare/v1.1.0...v1.2.0) (2021-11-26)
 
 ### Features
 
 - added systems and step loop to engine class ([24667ba](https://github.com/colinespinas/awe/commit/24667bad5bb480546558d848663a9af6b2a7f0cd))
 
-# [1.1.0](https://github.com/colinespinas/awe/compare/v1.0.0...v1.1.0) (2021-11-16)
+## [1.1.0](https://github.com/colinespinas/awe/compare/v1.0.0...v1.1.0) (2021-11-16)
 
 ### Features
 
 - **nodes:** added outer and inner nodes methods to handle engine runtime ([76d099f](https://github.com/colinespinas/awe/commit/76d099fb7bf93bada4c50a9d2dea6d892ceac6ba))
 
-# 1.0.0 (2021-11-14)
+## 1.0.0 (2021-11-14)
 
 ### Features
 
