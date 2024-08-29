@@ -1,5 +1,11 @@
 # @ineka-dev/engine
 
+## 2.2.0
+
+### Minor Changes
+
+- [#19](https://github.com/ineka-dev/engine/pull/19) [`fd47614`](https://github.com/ineka-dev/engine/commit/fd47614c7ddd4366c443cbee99be108e984c30dc) Thanks [@ColinEspinas](https://github.com/ColinEspinas)! - Changed engine loop and time management class to improve developer experience.
+
 ## 2.1.2
 
 ### Patch Changes
