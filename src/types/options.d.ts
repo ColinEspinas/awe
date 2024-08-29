@@ -1,5 +1,5 @@
 /**
- * Options available to the engine.
+ * Options available to the Engine class.
  */
 export interface EngineOptions {
   /**

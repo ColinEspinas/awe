@@ -1,4 +1,4 @@
-import type { EngineOptions } from '../options/EngineOptions'
+import type { EngineOptions } from '../types/options'
 import { EngineError } from '../errors/EngineError'
 import type { OuterNode } from './OuterNode'
 import type { TreeNode } from './TreeNode'

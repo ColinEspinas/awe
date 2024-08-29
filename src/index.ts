@@ -13,31 +13,29 @@
 // Core:
 import { Engine } from './core/Engine'
 import { Time } from './core/Time'
-
-// Nodes:
 import { TreeNode } from './core/TreeNode'
 import { InnerNode } from './core/InnerNode'
 import { OuterNode } from './core/OuterNode'
 
-// Types:
-import type { EngineOptions } from './options/EngineOptions'
-
 // Errors:
 import { EngineError } from './errors/EngineError'
+
+// Types:
+import type { EngineOptions } from './types/options'
+import type { EngineErrorCode } from './types/errors'
 
 export {
   // Core:
   Engine,
   Time,
-
-  // Nodes:
   TreeNode,
   InnerNode,
   OuterNode,
 
-  // Types:
-  EngineOptions,
-
   // Errors:
   EngineError,
+
+  // Types:
+  EngineOptions,
+  EngineErrorCode,
 }
