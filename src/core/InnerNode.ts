@@ -1,3 +1,4 @@
+import { EngineError } from '../errors/EngineError'
 import type { Engine } from './Engine'
 import { TreeNode } from './TreeNode'
 
@@ -13,14 +14,14 @@ export class InnerNode extends TreeNode {
   /**
    * Node's children nodes.
    */
-  protected children: TreeNode[]
+  protected _children: TreeNode[]
 
   /**
    * Setup children and calls onCreate method.
    */
   constructor(parent: TreeNode | Engine) {
     super(parent)
-    this.children = []
+    this._children = []
     this.onCreate()
   }
 
@@ -31,11 +32,11 @@ export class InnerNode extends TreeNode {
    * @sealed
    */
   public add(node: TreeNode): number {
-    this.children.push(node)
+    this._children.push(node)
     // Load the added node if added after loading.
-    if (this.isLoaded)
+    if (this._isLoaded)
       node.load()
-    return this.children.length
+    return this._children.length
   }
 
   /**
@@ -46,7 +47,7 @@ export class InnerNode extends TreeNode {
    */
   public remove(node: TreeNode): TreeNode {
     let removedNode
-    this.children = this.children.filter((n: TreeNode) => {
+    this._children = this._children.filter((n: TreeNode) => {
       // Unloads and filters the given node out.
       if (n.id === node.id) {
         removedNode = n
@@ -55,6 +56,8 @@ export class InnerNode extends TreeNode {
       }
       return true
     })
+    if (!removedNode)
+      throw new EngineError(this._engine, 'NODE:FAILURE', 'The node you tried to remove is not a child of this node.')
     return removedNode
   }
 
@@ -67,10 +70,10 @@ export class InnerNode extends TreeNode {
    */
   public load(): void {
     this.onLoad()
-    for (let i = 0, len = this.children.length; i !== len; ++i) {
-      this.children[i].load()
+    for (let i = 0, len = this._children.length; i !== len; ++i) {
+      this._children[i].load()
     }
-    this.isLoaded = true
+    this._isLoaded = true
   }
 
   /**
@@ -80,10 +83,10 @@ export class InnerNode extends TreeNode {
    * Calls the `onStep` method and children's `step` methods.
    * @sealed
    */
-  public step(): void {
-    this.onStep()
-    for (let i = 0, len = this.children.length; i !== len; ++i) {
-      this.children[i].step()
+  public step(delta: number): void {
+    this.onStep(delta)
+    for (let i = 0, len = this._children.length; i !== len; ++i) {
+      this._children[i].step(delta)
     }
   }
 
@@ -96,8 +99,8 @@ export class InnerNode extends TreeNode {
    */
   public fixedStep(): void {
     this.onFixedStep()
-    for (let i = 0, len = this.children.length; i !== len; ++i) {
-      this.children[i].fixedStep()
+    for (let i = 0, len = this._children.length; i !== len; ++i) {
+      this._children[i].fixedStep()
     }
   }
 
@@ -110,10 +113,10 @@ export class InnerNode extends TreeNode {
    */
   public unload(): void {
     this.onUnload()
-    for (let i = 0, len = this.children.length; i !== len; ++i) {
-      this.children[i].unload()
+    for (let i = 0, len = this._children.length; i !== len; ++i) {
+      this._children[i].unload()
     }
-    this.isLoaded = false
+    this._isLoaded = false
   }
 
   /**
@@ -138,7 +141,8 @@ export class InnerNode extends TreeNode {
    * this function is to be implemented when needed.
    * @virtual
    */
-  protected onStep(): void { }
+  // eslint-disable-next-line unused-imports/no-unused-vars
+  protected onStep(delta: number): void { }
 
   /**
    * Called by the parent node at each fixed step of the loop,

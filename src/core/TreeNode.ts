@@ -18,12 +18,12 @@ export abstract class TreeNode {
   /**
    * Engine instance of the node's graph.
    */
-  protected engine: Engine
+  protected _engine: Engine
 
   /**
    * Get wether the node is loaded.
    */
-  protected isLoaded: boolean
+  protected _isLoaded: boolean
 
   /**
    * Get the node's ID.
@@ -36,18 +36,23 @@ export abstract class TreeNode {
   public get parent(): TreeNode | Engine { return this._parent }
 
   /**
+   * Get engine instance.
+   */
+  public get engine(): Engine { return this._engine }
+
+  /**
    * Generates node's id.
    */
   constructor(parent: TreeNode | Engine) {
     this._parent = parent
     if (parent instanceof TreeNode) {
-      this.engine = parent.engine
+      this._engine = parent._engine
     }
     else {
-      this.engine = parent
+      this._engine = parent
     }
     this._id = nanoid(16)
-    this.isLoaded = false
+    this._isLoaded = false
   }
 
   /**
@@ -106,12 +111,12 @@ export abstract class TreeNode {
    * In the case of an inner node, this method
    * will call the children's `step` methods too.
    */
-  public abstract step(): void
+  public abstract step(delta: number): void
 
   /**
    * To execute at each step of the loop.
    */
-  protected abstract onStep(): void
+  protected abstract onStep(delta: number): void
 
   /**
    * Called at each fixed step of the loop by the parent

@@ -1,4 +1,5 @@
-import type { EngineOptions } from '../options/EngineOptions'
+import type { EngineOptions } from '../types/options'
+import { EngineError } from '../errors/EngineError'
 import type { OuterNode } from './OuterNode'
 import type { TreeNode } from './TreeNode'
 import { Time } from './Time'
@@ -12,13 +13,9 @@ export class Engine {
    */
   private _options: EngineOptions
   /**
-   * Engine container element.
+   * Engine DOM container element.
    */
   private _container: HTMLElement
-  /**
-   * Root node of the engine's graph.
-   */
-  public rootNode: TreeNode
   /**
    * Engine's attached systems.
    */
@@ -27,6 +24,10 @@ export class Engine {
    * Engine's time utility.
    */
   private _time: Time = new Time()
+  /**
+   * Root node of the engine's graph.
+   */
+  public rootNode: TreeNode | undefined
 
   /**
    * Get engine's options.
@@ -64,7 +65,7 @@ export class Engine {
       framerate: null,
       ...options,
     }
-    this._container = document.querySelector(this._options.container)
+    this._container = document.querySelector(this._options.container as string) as HTMLElement
     this.init()
   }
 
@@ -79,7 +80,7 @@ export class Engine {
   public run(): void {
     // Check if root node exists before loading.
     if (!this.rootNode) {
-      throw new Error('No root node given to engine, cannot run.')
+      throw new EngineError(this, 'ENGINE:FAILURE', 'No root node given to engine, cannot run.')
     }
     // Load systems.
     this.systems.forEach((system) => {
@@ -97,21 +98,26 @@ export class Engine {
    * to fix the timestep for fixed update loops (useful for physics and user interactions).
    */
   protected step(now: number): void {
+    if (!this.rootNode) {
+      throw new EngineError(this, 'ENGINE:FAILURE', 'No root node given to engine, cannot run.')
+    }
     // Update delta and last frame time
-    this.time.updateDelta(now)
-    this.time.updateLast()
+    this.time.update(now)
     // Fix timestep of fixedStep methods
     this.time.fixTimestep(() => {
+      if (!this.rootNode) {
+        throw new EngineError(this, 'ENGINE:FAILURE', 'No root node given to engine, cannot run.')
+      }
       this.systems.forEach((system) => {
-        Promise.resolve().then(() => system.fixedStep())
+        system.fixedStep()
       })
-      Promise.resolve().then(() => this.rootNode.fixedStep())
+      this.rootNode.fixedStep()
     })
     // Do non fixed steps
     this.systems.forEach((system) => {
-      system.step()
+      system.step(this.time.delta)
     })
-    this.rootNode.step()
+    this.rootNode.step(this.time.delta)
     // Request next step
     requestAnimationFrame(this.step.bind(this))
   }

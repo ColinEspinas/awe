@@ -1,3 +1,4 @@
+import { EngineError } from '../errors/EngineError'
 import type { Engine } from './Engine'
 import { TreeNode } from './TreeNode'
 
@@ -21,7 +22,7 @@ export class OuterNode extends TreeNode {
    * @sealed
    */
   public add(): number {
-    throw new Error('You tried to add a child to an outer node. Outer nodes cannot have children.')
+    throw new EngineError(this._engine, 'NODE:FAILURE', 'You tried to add a child to an outer node. Outer nodes cannot have children.')
   }
 
   /**
@@ -30,7 +31,7 @@ export class OuterNode extends TreeNode {
    * @sealed
    */
   public remove(): TreeNode {
-    throw new Error('You tried to remove a child to an outer node. Outer nodes cannot have children.')
+    throw new EngineError(this._engine, 'NODE:FAILURE', 'You tried to remove a child to an outer node. Outer nodes cannot have children.')
   }
 
   /**
@@ -42,7 +43,7 @@ export class OuterNode extends TreeNode {
    */
   public load(): void {
     this.onLoad()
-    this.isLoaded = true
+    this._isLoaded = true
   }
 
   /**
@@ -52,8 +53,8 @@ export class OuterNode extends TreeNode {
    * Calls the `onStep` method.
    * @sealed
    */
-  public step(): void {
-    this.onStep()
+  public step(delta: number): void {
+    this.onStep(delta)
   }
 
   /**
@@ -76,7 +77,7 @@ export class OuterNode extends TreeNode {
    */
   public unload(): void {
     this.onUnload()
-    this.isLoaded = false
+    this._isLoaded = false
   }
 
   /**
@@ -101,7 +102,8 @@ export class OuterNode extends TreeNode {
    * this method is to be implemented when needed.
    * @virtual
    */
-  protected onStep(): void { }
+  // eslint-disable-next-line unused-imports/no-unused-vars
+  protected onStep(delta: number): void { }
 
   /**
    * Called by the parent node at each fixed step of the loop,
