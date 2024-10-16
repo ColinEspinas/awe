@@ -1,5 +1,11 @@
 # @ineka-dev/engine
 
+## 2.3.0
+
+### Minor Changes
+
+- [#21](https://github.com/ineka-dev/engine/pull/21) [`8e4cafc`](https://github.com/ineka-dev/engine/commit/8e4cafc3d249d151c6f3850129e2362056f2e0b2) Thanks [@ColinEspinas](https://github.com/ColinEspinas)! - Added hooks to execute code at engine's key locations
+
 ## 2.2.0
 
 ### Minor Changes
