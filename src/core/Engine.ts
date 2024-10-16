@@ -63,6 +63,10 @@ export class Engine {
       fullscreen: true,
       container: 'body',
       framerate: null,
+      hooks: {
+        beforeStep: async () => { },
+        afterStep: async () => { },
+      },
       ...options,
     }
     this._container = document.querySelector(this._options.container as string) as HTMLElement
@@ -98,6 +102,17 @@ export class Engine {
    * to fix the timestep for fixed update loops (useful for physics and user interactions).
    */
   protected step(now: number): void {
+    // Call beforeStep hook
+    try {
+      if (!this.options.hooks || !this.options.hooks.beforeStep) {
+        throw new EngineError(this, 'ENGINE:FAILURE', 'No beforeStep hook given to engine.')
+      }
+      this.options.hooks.beforeStep()
+    }
+    catch (err) {
+      console.error(err)
+    }
+
     if (!this.rootNode) {
       throw new EngineError(this, 'ENGINE:FAILURE', 'No root node given to engine, cannot run.')
     }
@@ -118,6 +133,17 @@ export class Engine {
       system.step(this.time.delta)
     })
     this.rootNode.step(this.time.delta)
+    // Call afterStep hook
+    try {
+      if (!this.options.hooks || !this.options.hooks.afterStep) {
+        throw new EngineError(this, 'ENGINE:FAILURE', 'No afterStep hook given to engine.')
+      }
+      this.options.hooks.afterStep()
+    }
+    catch (err) {
+      console.error(err)
+    }
+
     // Request next step
     requestAnimationFrame(this.step.bind(this))
   }

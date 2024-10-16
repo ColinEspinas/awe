@@ -32,4 +32,20 @@ export interface EngineOptions {
    * @default null
    */
   framerate?: number | null
+
+  /**
+   * Hooks are functions that are called at specific points in the engine's runtime.
+   */
+  hooks?: {
+    /**
+     * Called before the engine's step loop.
+     * @default async () => { }
+     */
+    beforeStep: () => Promise<void>
+    /**
+     * Called after the engine's step loop.
+     * @default async () => { }
+     */
+    afterStep: () => Promise<void>
+  }
 }
